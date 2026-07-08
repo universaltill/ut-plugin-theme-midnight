@@ -1,0 +1,28 @@
+{
+  "id": "com.universaltill.theme-midnight",
+  "name": "Midnight Theme",
+  "version": "1.0.1",
+  "description": "Dark POS style theme — low-glare palette for dim environments; keeps the default layout.",
+  "author": "Universal Till",
+  "website": "https://universaltill.com",
+  "canonical_type": "theme",
+  "runtime": "none",
+  "device_arch": "any",
+  "min_pos_version": "1.0.0",
+  "permissions": [
+    "ui.theme"
+  ],
+  "locales": [
+    "en-US"
+  ],
+  "entries": [
+    {
+      "type": "theme",
+      "key": "midnight",
+      "label": "Midnight (dark)",
+      "config": {
+        "css": "assets/theme.css"
+      }
+    }
+  ]
+}
