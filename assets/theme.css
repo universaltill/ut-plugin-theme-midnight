@@ -1,17 +1,38 @@
-/* Midnight — dark style theme. Keeps the default panel layout. */
-:root { --brand:#0b1220; --accent:#38bdf8; }
+/* Midnight — dark style theme. Keeps the default panel layout.
+   Overrides the FULL token set: app.css derives headings from --brand and
+   secondary text from --muted, so a dark theme must re-point every token or
+   text goes dark-on-dark (unreadable). WCAG-checked pairs: #e2e8f0 on
+   #1e293b ≈ 11:1, #94a3b8 on #1e293b ≈ 5.4:1, #7dd3fc on #1e293b ≈ 8.6:1. */
+:root {
+  --brand: #7dd3fc;           /* headings accent — light on dark surfaces */
+  --accent: #38bdf8;          /* primary action */
+  --accent-contrast: #0b1220; /* text on accent buttons */
+  --bg: #0f172a;              /* page background */
+  --surface: #1e293b;         /* cards, tables */
+  --surface-2: #253349;       /* subtle wells inside cards */
+  --border: #3e4f66;
+  --text: #e2e8f0;
+  --muted: #94a3b8;           /* hints, labels — readable on both surfaces */
+  --success: #4ade80;
+  --danger: #f87171;
+  --warning: #fbbf24;
+  --shadow: none;
+}
 
-body { background:#0f172a; color:#e2e8f0; }
-.nav { background:var(--brand); color:#fff; padding:.6rem 1rem; display:flex; justify-content:space-between; align-items:center }
-.nav a { color:#cbd5e1; margin-left:.8rem }
-.nav a:hover { color:#fff }
-.logo img { height:30px }
+body { background: var(--bg); color: var(--text); }
 
-.card, .btn-tile, .basket table { background:#1e293b; color:#e2e8f0; border-color:#334155; box-shadow:none }
-.basket th, .basket td { border-bottom:1px solid #334155 }
-.basket .total { color:var(--accent) }
-.btn { background:var(--accent); color:#0b1220 }
-.btn.secondary { background:#334155; color:#e2e8f0 }
-input, select { background:#0f172a; color:#e2e8f0; border:1px solid #334155 }
-.tender-help, .offline-help { color:#94a3b8 }
-.status-pill { background:#134e4a; color:#5eead4 }
+/* Nav stays darker than the page; --brand is now a light accent so the nav
+   background is set explicitly. */
+.nav { background: #0b1220; color: #fff; padding: .6rem 1rem; display: flex; justify-content: space-between; align-items: center }
+.nav a { color: #cbd5e1; margin-inline-start: .8rem }
+.nav a:hover { color: #fff }
+.logo img { height: 30px }
+
+.card, .btn-tile, .basket table { background: var(--surface); color: var(--text); border-color: var(--border); box-shadow: none }
+.basket th, .basket td { border-bottom: 1px solid var(--border) }
+.basket .total { color: var(--accent) }
+.btn { background: var(--accent); color: var(--accent-contrast) }
+.btn.secondary { background: #334155; color: var(--text) }
+input, select, textarea { background: #0f172a; color: var(--text); border: 1px solid var(--border) }
+.tender-help, .offline-help { color: var(--muted) }
+.status-pill { background: #134e4a; color: #5eead4 }
