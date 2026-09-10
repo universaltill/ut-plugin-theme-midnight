@@ -76,7 +76,8 @@ shipped_changed=()
 while IFS= read -r f; do
     [ -n "$f" ] || continue
     for pat in "${SHIPPED_PATTERNS[@]}"; do
-        # shellcheck disable=SC2053 -- intentional unquoted glob match
+        # Intentional unquoted glob match ($pat is a pattern, not a literal).
+        # shellcheck disable=SC2053
         if [[ "$f" == $pat ]]; then
             shipped_changed+=("$f")
             break
