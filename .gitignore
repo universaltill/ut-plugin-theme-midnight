@@ -1,2 +1,8 @@
 dist/
 .DS_Store
+
+# Real registered git worktrees created by Agent(isolation: "worktree") for
+# an independent review subagent — session tooling, not repo content. Same
+# convention already documented in universal-till/CLAUDE.md's "Agent
+# worktree hygiene" note; this repo just never had one until now.
+.claude/worktrees/
